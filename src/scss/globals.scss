@@ -1,0 +1,30 @@
+@import "bootstrap/scss/functions";
+
+$breadcrumb-divider: quote(">");
+$primary: #be4648;
+$grid-columns: 6;
+
+// overrides
+a {
+  text-decoration: none;
+}
+$btn-secondary-bg: lightgrey;
+$list-group-border-color: transparent;
+$secondary: lightgrey;
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/variables-dark";
+@import "bootstrap/scss/maps";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/utilities";
+@import "bootstrap/scss/root";
+@import "bootstrap/scss/reboot";
+@import "bootstrap/scss/forms";
+@import "bootstrap/scss/card";
+@import "bootstrap/scss/grid";
+@import "bootstrap/scss/buttons";
+
+//@import "bootstrap/scss/list-group";
+
+a {
+  text-decoration: none;
+}

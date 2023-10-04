@@ -1,0 +1,28 @@
+@use "../../../scss/globals.scss" as *;
+
+// gridlayout for cards each card should be 260px wide and fit however many cards it can
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: map-get($spacers, 1);
+}
+
+// max # of columsn is 6
+.courses {
+  gap: 32px;
+}
+
+.course {
+  width: 260px;
+  padding-bottom: 0;
+  height: auto;
+  p {
+    margin: 0;
+  }
+  // ellipsis for course title overflow
+  .course__title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}

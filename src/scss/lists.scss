@@ -1,0 +1,110 @@
+@use "./globals.scss" as bootstrap;
+
+.list__container {
+  width: 100%;
+  * {
+    margin: 0;
+    padding: 0;
+  }
+}
+.list__header {
+  background-color: bootstrap.$gray-100;
+  padding: map-get(bootstrap.$spacers, 3) !important;
+}
+
+.list__item__leading {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+}
+
+.list__item__trailing {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+}
+
+.list__item__success {
+  border-left: 4px solid bootstrap.$success !important;
+}
+
+.list__item__body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+
+  span {
+    font-size: small;
+    color: gray;
+  }
+}
+
+.list__item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0;
+  //gap: 12px;
+  //padding: 0;
+  //padding-bottom: 8px;
+  border: solid 1px #e5e7eb;
+  //background-color: bootstrap.$gray-100;
+  //list-style: none;
+  justify-content: space-between;
+  padding: map-get(bootstrap.$spacers, 3);
+  padding-right: map-get(bootstrap.$spacers, 3);
+  padding-left: map-get(bootstrap.$spacers, 3);
+
+  //left: 0;
+  width: 100%;
+  * {
+    margin: 0;
+  }
+
+  // default bootstrap gray text color
+  h6 {
+    color: bootstrap.$gray-700 !important;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.list__sub__item__title {
+  //border: solid 1px #e5e7eb;
+  position: absolute !important;
+  left: map-get(bootstrap.$spacers, 5);
+  white-space: nowrap;
+}
+
+.check__icon {
+  color: green;
+}
+
+.link__icon {
+  color: green;
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.grip__icon {
+  cursor: grab;
+}
+
+.link {
+  color: bootstrap.$primary;
+  cursor: pointer;
+}
+
+.modules__list {
+  gap: 16px;
+  display: flex;
+
+  flex-direction: column;
+}
+
+.pen__icon {
+  color: bootstrap.$success;
+}

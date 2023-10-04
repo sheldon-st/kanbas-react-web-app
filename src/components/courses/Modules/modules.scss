@@ -1,0 +1,192 @@
+@use "../../../scss/globals.scss" as bootstrap;
+
+.modules {
+  display: flex;
+  flex-direction: column;
+  //height: 100%;
+  width: 100%;
+  overflow: hidden;
+  gap: 16px;
+  padding: 0;
+  margin: 0;
+  // border: 1px solid red;
+  list-style: none;
+
+  * {
+    margin: 0;
+  }
+
+  li {
+    //border: solid 1px #e5e7eb;
+  }
+
+  ul {
+    padding-left: 0;
+  }
+}
+
+.modules__header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0;
+  gap: 12px;
+  padding: 0;
+  //padding-bottom: 8px;
+  width: 100%;
+  //border: solid 1px #e5e7eb;
+
+  * {
+    margin: 0;
+  }
+}
+
+.modules__header__buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  justify-content: flex-end;
+}
+
+.modules__body {
+  display: flex;
+  flex-direction: column;
+  //height: 100%;
+  width: 100%;
+  overflow: hidden;
+  //gap: 8px;
+  padding: 0;
+  margin: 0;
+  //border: 1px solid red;
+  list-style: none;
+  * {
+    margin: 0;
+    list-style: none;
+  }
+}
+
+.modules__body__header {
+  background-color: bootstrap.$gray-100;
+  padding: map-get(bootstrap.$spacers, 3) !important;
+}
+
+.modules__list__item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0;
+  //gap: 12px;
+  //padding: 0;
+  //padding-bottom: 8px;
+  border: solid 1px #e5e7eb;
+  //background-color: bootstrap.$gray-100;
+  //list-style: none;
+  justify-content: space-between;
+  padding: map-get(bootstrap.$spacers, 3);
+  padding-right: map-get(bootstrap.$spacers, 3);
+  padding-left: map-get(bootstrap.$spacers, 3);
+
+  //left: 0;
+  width: 100%;
+  * {
+    margin: 0;
+  }
+}
+
+.modules__body__header__buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+}
+
+.modules__body__section {
+  display: flex;
+  flex-direction: column;
+  //height: 100%;
+  width: 100%;
+  overflow: hidden;
+  //gap: 8px;
+  margin: 0;
+  // border: 1px solid red;
+
+  * {
+    margin: 0;
+  }
+  border-left: 3px solid bootstrap.$success;
+}
+
+.modules__body__list {
+  padding-left: 0;
+}
+
+.modules__body__section__header {
+}
+
+.modules__body__section__header__buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+}
+
+.modules__body__section__item {
+  //padding-left: map-get(bootstrap.$spacers, 4);
+}
+
+.modules__item__title {
+  //border: solid 1px #e5e7eb;
+  position: absolute !important;
+  left: map-get(bootstrap.$spacers, 5);
+  white-space: nowrap;
+}
+
+.modules__body__section__item__header__buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+}
+
+.modules__body__section__item__header__buttons__button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+}
+
+.modules__item__leading {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+}
+
+.check__icon {
+  color: green;
+}
+
+.link__icon {
+  color: green;
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.grip__icon {
+  cursor: grab;
+}
+
+.link {
+  color: bootstrap.$primary;
+  cursor: pointer;
+}
+
+.modules__list {
+  gap: 16px;
+  display: flex;
+
+  flex-direction: column;
+}

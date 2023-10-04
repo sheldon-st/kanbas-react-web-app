@@ -1,0 +1,67 @@
+@use "../../../scss/custom.scss" as bootstrap;
+
+.profile {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  border: solid 1px black;
+}
+
+.profile__body {
+  width: 100%;
+}
+
+
+.profile__form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: map-get(bootstrap.$spacers, 4);
+  //border: solid 1px black;
+  //justify-content: flex-start;
+}
+
+.profile__avatar {
+  svg {
+    width: 72px;
+    height: 72px;
+  }
+}
+
+.profile__field {
+}
+
+// extends the bootstrap col but should align center
+.profile__link {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: map-get(bootstrap.$spacers, 1);
+  text-align: center;
+  font-weight: 500;
+}
+
+.btn {
+  height: fit-content;
+  white-space: nowrap;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: map-get(bootstrap.$spacers, 1);
+}
+
+.profile__actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: map-get(bootstrap.$spacers, 1);
+}
+
+hr {
+  margin: 0;
+}
+
+a {
+  text-decoration: none !important;
+}

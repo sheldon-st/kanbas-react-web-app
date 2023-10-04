@@ -1,0 +1,14 @@
+@import "../../scss/custom.scss";
+.courseLayout {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  border: solid;
+}
+
+.courseLayout__body {
+  display: flex;
+  flex-direction: row;
+}

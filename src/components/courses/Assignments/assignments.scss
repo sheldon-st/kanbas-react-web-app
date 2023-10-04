@@ -1,0 +1,102 @@
+@use "../../../scss/custom.scss" as *;
+
+.fwidth {
+  width: 100%;
+  //border: solid 1px #ccc;
+}
+
+.edit-assignment {
+  display: flex;
+  flex-direction: column;
+  gap: map-get($spacers, 3);
+  width: 100%;
+
+  div {
+    padding: 0;
+  }
+}
+
+.col-form-label {
+  text-align: end;
+}
+
+.edit-item {
+  align-items: center;
+}
+
+.form-check {
+  margin: 0;
+  padding: 0;
+  // border: 1px solid #ccc;
+  align-items: center;
+  justify-content: flex-start;
+  display: flex;
+
+  gap: map-get($spacers, 1);
+  flex-direction: row;
+  text-align: left;
+
+  &.form-check-label {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.form-check-input {
+  margin: 0 !important;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  left: 0;
+  //border: 1px solid red;
+}
+
+.edit-group {
+  border: $border-width solid $border-color;
+  border-radius: $border-radius;
+  padding: map-get($spacers, 2) !important;
+}
+
+.date-range {
+  display: flex;
+  flex-direction: row;
+  gap: map-get($spacers, 1);
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  //border: 1px solid #ccc;
+}
+.edit-assignment__footer {
+  display: flex;
+  flex-direction: row;
+  gap: map-get($spacers, 1);
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.list__item__tag {
+  border: solid 1px #ccc;
+  padding: map-get($spacers, 1) map-get($spacers, 2);
+  line-height: 0.75rem;
+}
+
+.button__group {
+  display: flex;
+  flex-direction: row;
+  gap: map-get($spacers, 1);
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  //border: 1px solid #ccc;
+}
+
+.list__actions {
+  display: flex;
+  flex-direction: row;
+  gap: map-get($spacers, 1);
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  //border: 1px solid #ccc;
+}

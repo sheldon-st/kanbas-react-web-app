@@ -1,0 +1,13 @@
+@import "../../scss/custom.scss";
+.accountLayout {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.accountLayout__body {
+  display: flex;
+  flex-direction: row;
+}

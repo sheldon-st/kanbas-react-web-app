@@ -1,38 +1,64 @@
-.App {
-  text-align: center;
+@font-face {
+  font-family: "Lato";
+  src: url("../fonts/Lato-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Lato";
+  src: url("../fonts/Lato-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Lato";
+  src: url("../fonts/Lato-Light.ttf") format("truetype");
+  font-weight: lighter;
+  font-style: normal;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+@font-face {
+  font-family: "Lato Extended";
+  font-style: normal;
+  font-weight: 300;
+  src: url("../fonts/Lato-Light-7244318390.woff2");
+  font-display: swap;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+@font-face {
+  font-family: "Lato Extended";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/Lato-Regular-bd03a2cc27.woff2");
+  font-display: swap;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+@font-face {
+  font-family: "Lato Extended";
+  font-style: italic;
+  font-weight: 400;
+  src: url("../fonts/Lato-Italic-4eb103b4d1.woff2");
+  font-display: swap;
 }
 
-.App-link {
-  color: #61dafb;
+@font-face {
+  font-family: "Lato Extended";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../fonts/Lato-Bold-cccb897485.woff2");
+  font-display: swap;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+@font-face {
+  font-family: "Lato Extended";
+  font-style: italic;
+  font-weight: 700;
+  src: url("../fonts/Lato-BoldItalic-0b6bb67255.woff2");
+  font-display: swap;
+}
+
+* {
+  font-family: "Lato Extended", "Lato", "Helvetica Neue", Helvetica, Arial,
+    sans-serif;
+  font-size: 100%;
 }

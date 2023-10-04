@@ -1,0 +1,56 @@
+@use "../../scss/globals.scss" as bootstrap;
+
+.secondaryNavigation {
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  width: 190px;
+  font-size: large;
+  gap: 16px;
+  font-size: 1rem;
+
+  ul {
+    padding: 0;
+  }
+  li {
+    text-decoration: none;
+    list-style: none;
+    line-height: 1.25;
+  }
+
+  flex-shrink: 0;
+  // border: 1px solid black;
+}
+
+.navigationItem {
+  text-decoration: none;
+}
+
+.active {
+  color: black;
+  border-left: 1px solid black;
+  // get spacing from bootstrap spacers map
+  padding-left: map-get(bootstrap.$spacers, 2);
+}
+
+.navigationHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  border-bottom: 1px solid black;
+  padding-bottom: 0;
+  font-size: 18px;
+}
+
+.collapsed {
+  display: none;
+}
+
+.disabled {
+  //cursor: not-allowed;
+  // disable ability to click but still show cursor
+  pointer-events: none;
+  cursor: not-allowed;
+}
