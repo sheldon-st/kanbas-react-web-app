@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+  </head>
+  <body>
+    <div style="display: flex; flex-direction: row; gap: 12px; width: 100%">
+      <div class="kanbasNavigation">
+        <ul>
+          <li><a href="/kanbas/profile/index.html">Account</a></li>
+          <li><a href="#">Dashboard</a></li>
+          <li><a href="/kanbas/home.html">Courses</a></li>
+          <li><a href="#">Calendar</a></li>
+          <li><a href="#">Inbox</a></li>
+          <li><a href="#">History</a></li>
+          <li><a href="#">Studio</a></li>
+          <li><a href="#">Commons</a></li>
+          <li><a href="#">Help</a></li>
+        </ul>
+      </div>
+      <div class="courseNavigation">
+        <ul>
+          <li><a href="#">Notifications</a></li>
+          <li><a href="#">Profile</a></li>
+          <li><a href="#">files</a></li>
+          <li><a href="#">Settings</a></li>
+          <li><a href="#">ePortfolios</a></li>
+          <li><a href="#">Shared Content</a></li>
+          <li><a href="#">The Hub</a></li>
+          <li><a href="#">Qwickly Course Tools</a></li>
+          <li><a href="#">Global Announcements</a></li>
+        </ul>
+      </div>
+      <div class="content" style="width: 100%">
+        <div
+          class="header"
+          style="
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100%;
+          "
+        >
+          <h3>John Smith's Profile</h3>
+        </div>
+        <hr />
+        <div
+          class="profile"
+          style="
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            width: 100%;
+            justify-content: space-between;
+          "
+        >
+          <img
+            src="https://t3.ftcdn.net/jpg/00/57/04/58/360_F_57045887_HHJml6DJVxNBMqMeDqVJ0ZQDnotp5rGD.jpg"
+            alt="Profile Picture"
+            style="width: 100px; height: 100px; border-radius: 50%"
+          />
+          <div
+            class="profileInfo"
+            style="
+              display: flex;
+              flex-direction: column;
+              gap: 12px;
+              width: 100%;
+            "
+          >
+            <div class="profileInfoItem">
+              <label for="name">Name</label>
+              <input type="text" id="name" value="John Smith" />
+            </div>
+            <div class="profileInfoItem">
+              <label for="pronouns">Pronouns</label>
+              <select id="pronouns">
+                <option value="he/him">He/Him</option>
+                <option value="she/her">She/Her</option>
+                <option value="they/them">They/Them</option>
+              </select>
+            </div>
+            <div class="profileInfoItem">
+              <label for="title">Title</label>
+              <input type="text" id="title" value="Student" />
+            </div>
+            <div class="profileInfoItem">
+              <h3>Contact</h3>
+              <p>
+                No registered sources, you can add a source on the
+                <a href="#">Settings</a> page.
+              </p>
+            </div>
+            <div class="profileInfoItem">
+              <h3>Biography</h3>
+              <textarea
+                name="biography"
+                id="biography"
+                cols="30"
+                rows="10"
+              ></textarea>
+            </div>
+            <div class="profileInfoItem">
+              <h3>Links</h3>
+              <div class="linkItem" style="display: flex">
+                <div
+                  style="
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                  "
+                >
+                  <label>Title</label>
+                  <input type="text" id="title" value="Youtube" />
+                </div>
+                ->
+                <div
+                  style="
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                  "
+                >
+                  <label>URL</label>
+                  <input type="text" id="url" value="https://www.youtube.com" />
+                </div>
+                <button>Remove</button>
+              </div>
+              <button>Add another link</button>
+            </div>
+            <hr />
+            <div class="actions">
+              <button onclick="window.location.href='./index.html'">
+                Cancel
+              </button>
+              <button onclick="window.location.href='./index.html'">
+                Save
+              </button>
+            </div>
+          </div>
+          <button
+            onclick="window.location.href='/public/kanbas/profile/index.html'"
+          >
+            Cancel Editing
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
