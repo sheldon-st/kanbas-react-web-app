@@ -62,3 +62,8 @@
     sans-serif;
   font-size: 100%;
 }
+
+hr {
+  color: #d2d6da;
+  opacity: 0.5;
+}

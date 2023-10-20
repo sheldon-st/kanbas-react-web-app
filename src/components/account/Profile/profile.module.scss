@@ -5,14 +5,14 @@
   flex-direction: row;
   width: 100%;
   justify-content: space-between;
- // border: solid 1px black;
+  // border: solid 1px black;
 }
 
 .profile__body {
   width: 100%;
 }
 
-
+/* 
 .profile__form {
   display: flex;
   flex-direction: column;
@@ -57,7 +57,7 @@
   justify-content: flex-end;
   gap: map-get(bootstrap.$spacers, 1);
 }
-
+ */
 hr {
   margin: 0;
 }

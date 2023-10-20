@@ -1,0 +1,149 @@
+[
+  {
+    "_id": "CS4550A1",
+    "title": "Network Topologies",
+    "dueDate": "2022-09-15",
+    "points": 100,
+    "course": "CS4550"
+  },
+  {
+    "_id": "CS4550A2",
+    "title": "Distributed Systems Design",
+    "dueDate": "2022-10-01",
+    "points": 150,
+    "course": "CS4550"
+  },
+  {
+    "_id": "CS4550A3",
+    "title": "Cloud Computing Architecture",
+    "dueDate": "2022-10-15",
+    "points": 200,
+    "course": "CS4550"
+  },
+  {
+    "_id": "IS4300A1",
+    "title": "Cryptography Fundamentals",
+    "dueDate": "2022-09-20",
+    "points": 100,
+    "course": "IS4300"
+  },
+  {
+    "_id": "IS4300A2",
+    "title": "Cybersecurity Threats and Mitigation",
+    "dueDate": "2022-10-05",
+    "points": 150,
+    "course": "IS4300"
+  },
+  {
+    "_id": "IS4300A3",
+    "title": "Network Security Protocols",
+    "dueDate": "2022-10-20",
+    "points": 200,
+    "course": "IS4300"
+  },
+  {
+    "_id": "CS3200A1",
+    "title": "Relational Database Design",
+    "dueDate": "2022-09-25",
+    "points": 100,
+    "course": "CS3200"
+  },
+  {
+    "_id": "CS3200A2",
+    "title": "Web Application Development",
+    "dueDate": "2022-10-10",
+    "points": 150,
+    "course": "CS3200"
+  },
+  {
+    "_id": "CS3200A3",
+    "title": "Software Engineering Principles",
+    "dueDate": "2022-10-25",
+    "points": 200,
+    "course": "CS3200"
+  },
+  {
+    "_id": "C4300A1",
+    "title": "Computer Architecture Fundamentals",
+    "dueDate": "2022-09-30",
+    "points": 100,
+    "course": "C4300"
+  },
+  {
+    "_id": "C4300A2",
+    "title": "Operating System Design",
+    "dueDate": "2022-10-15",
+    "points": 150,
+    "course": "C4300"
+  },
+  {
+    "_id": "C4300A3",
+    "title": "Computer Organization Principles",
+    "dueDate": "2022-10-30",
+    "points": 200,
+    "course": "C4300"
+  },
+  {
+    "_id": "CS5200A1",
+    "title": "Data Science Fundamentals",
+    "dueDate": "2022-09-10",
+    "points": 100,
+    "course": "CS5200"
+  },
+  {
+    "_id": "CS5200A2",
+    "title": "Machine Learning Applications",
+    "dueDate": "2022-09-25",
+    "points": 150,
+    "course": "CS5200"
+  },
+  {
+    "_id": "CS5200A3",
+    "title": "Artificial Intelligence Techniques",
+    "dueDate": "2022-10-10",
+    "points": 200,
+    "course": "CS5200"
+  },
+  {
+    "_id": "ARTG2260A1",
+    "title": "Graphic Design Principles",
+    "dueDate": "2022-09-15",
+    "points": 100,
+    "course": "ARTG2260"
+  },
+  {
+    "_id": "ARTG2260A2",
+    "title": "Digital Art Techniques",
+    "dueDate": "2022-09-30",
+    "points": 150,
+    "course": "ARTG2260"
+  },
+  {
+    "_id": "ARTG2260A3",
+    "title": "Visual Communication Strategies",
+    "dueDate": "2022-10-15",
+    "points": 200,
+    "course": "ARTG2260"
+  },
+  {
+    "_id": "ARTD3200A1",
+    "title": "3D Modeling Techniques",
+    "dueDate": "2022-09-20",
+    "points": 100,
+    "course": "ARTD3200"
+  },
+  {
+    "_id": "ARTD3200A2",
+    "title": "Animation Principles",
+    "dueDate": "2022-10-05",
+    "points": 150,
+    "course": "ARTD3200"
+  },
+  {
+    "_id": "ARTD3200A3",
+    "title": "Game Design Strategies",
+    "dueDate": "2022-10-20",
+    "points": 200,
+    "course": "ARTD3200"
+  }
+]

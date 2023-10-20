@@ -1,0 +1,50 @@
+//@use "../../scss/globals.scss" as bootstrap;
+@use "../../../scss/globals.scss";
+.secondaryNavigation {
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  width: 190px;
+  font-size: large;
+  gap: 16px;
+  font-size: 1rem;
+
+  ul {
+    padding: 0;
+  }
+  li {
+    text-decoration: none;
+    list-style: none;
+    line-height: 1.25;
+  }
+
+  flex-shrink: 0;
+  // border: 1px solid black;
+  //pointer-events:
+}
+
+.navigationItem {
+  text-decoration: none;
+  color: globals.$primary;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.active {
+  color: black;
+  border-left: 1px solid black;
+  padding-left: 8px;
+}
+
+.collapsed {
+  display: none;
+}
+
+.disabled {
+  //cursor: not-allowed;
+  // disable ability to click but still show cursor
+  pointer-events: none;
+  cursor: not-allowed !important;
+}

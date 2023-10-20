@@ -1,30 +1,49 @@
-import { SecondaryNavigation, NavigationItem } from "../SecondaryNavigation";
+import {
+  SecondaryNavigation,
+  NavigationItem,
+} from "../navigation/SecondaryNavigation";
 import React, { FC } from "react";
 import { Outlet } from "react-router-dom";
 import "./account-layout.scss";
 import { Header } from "../Header";
-import { InnerLayout } from "../InnerLayout/InnerLayout";
-import { ILink, IProfileProps } from "../../data/profile";
-import { profile } from "../../data/profile";
+import { InnerLayout } from "../layout/InnerLayout/InnerLayout";
 import { NavigationContext } from "../../hooks/NavigationContext";
+import { Box, Typography } from "@mui/material";
 export const AccountLayout: FC = () => {
-  const { name, pronouns, contact, bio, links } = profile as IProfileProps;
+ // const { name, pronouns, contact, bio, links } = profile as IProfileProps;
 
   // set the mobile navigation context to the profile title and an empty action
-  const { title, setTitle, setSecondaryNavigation, setDesktopHeader } =
-    React.useContext(NavigationContext);
+  const {
+    title,
+    setTitle,
+    setSecondaryNavigation,
+    setDesktopHeader,
+    setCurrent,
+  } = React.useContext(NavigationContext);
 
   React.useEffect(() => {
-    setTitle(name + "'s Profile");
-    setDesktopHeader(
-      <Header hamburger>
-        <h6>{name + "'s Profile"}</h6>
-      </Header>
-    );
+   // setTitle(name + "'s Profile");
+    setCurrent(<Typography variant="h6">Account</Typography>);
   }, [name, setTitle]);
 
   return (
-    <InnerLayout header={<span style={{ fontSize: "1.125rem" }}>{title}</span>}>
+    <Box
+      sx={{
+        width: "100%",
+        height: "100%",
+        alignItems: "center",
+        justifyContent: "center",
+        display: "flex",
+
+        paddingTop: "25%",
+      }}
+    >
+      <Typography variant="h1">Account</Typography>
+    </Box>
+  );
+};
+
+/* <InnerLayout header={<span style={{ fontSize: "1.125rem" }}>{title}</span>}>
       <NavigationItem to="/account/notifications" disabled>
         Notifications
       </NavigationItem>
@@ -50,6 +69,4 @@ export const AccountLayout: FC = () => {
       <NavigationItem to="/account/announcements" disabled>
         Global Announcements
       </NavigationItem>
-    </InnerLayout>
-  );
-};
+    </InnerLayout> */

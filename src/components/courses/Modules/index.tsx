@@ -1,155 +1,68 @@
-import React, { FC, ReactNode } from "react";
-import "./modules.scss";
-import {
-  IModule,
-  IModuleItem,
-  IModuleSection,
-} from "../../../types/interfaces";
-export interface IModulesProps {
-  children: ReactNode;
-  modules: IModule[];
-}
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faGripVertical,
-  faLink,
-  faCheckCircle,
-  faEllipsisVertical,
-} from "@fortawesome/free-solid-svg-icons";
+import React, { FC } from "react";
+//import "./modules.scss";
+import { List, IconButton, Select, MenuItem } from "@mui/material";
+import db from "../../../Database";
+import { Add, CheckCircle, MoreVert } from "@mui/icons-material";
+import { Button } from "../../ui/Button";
+import { CollapsibleListItem } from "../../ui/List/CollapsibleListItem";
+import { useCourse } from "../../../hooks/CourseContext";
 
-export const Modules: FC<IModulesProps> = ({ children, modules }) => {
+export const Modules: FC = () => {
+  const course = useCourse().course;
+
+  if (!course) {
+    return <div>Course not found</div>;
+  }
+
+  const modules = db.modules.filter((module) => module.course === course.name);
+
   return (
-    <div className="modules">
-      <div className="modules__header">
-        <div className="modules__header__buttons float-end">
-          <button className="btn btn-secondary">Collapse All</button>
-          <button className="btn btn-secondary">View Progress</button>
-          <button className="btn btn-secondary">Modules</button>
-          <div className="dropdown">
-            <button
-              className="btn btn-secondary dropdown-toggle"
-              type="button"
-              id="dropdownMenuButton1"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              Publish All
-            </button>
-            <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-              <li>
-                <a className="dropdown-item" href="#">
-                  Publish
-                </a>
-              </li>
-              <li>
-                <a className="dropdown-item" href="#">
-                  Unpublish
-                </a>
-              </li>
-            </ul>
-          </div>
+    <div className="page__content">
+      <div className="page__header">
+        <div className="page__header__actions">
+          <Button priority="secondary">Collapse All</Button>
+          <Button variant="contained">View Progress</Button>
+          <Select
+            value={"all"}
+            sx={{
+              backgroundColor: "#F7F7F7",
+              border: "none !important",
+              height: "36px",
+            }}
+          >
+            <MenuItem value="all">Publish All</MenuItem>
+            <MenuItem value="none">Unpublish All</MenuItem>
+          </Select>
+          <Button startIcon={<Add />} priority="primary">
+            Module
+          </Button>
+          <IconButton sx={{ backgroundColor: "#f7f7f7", borderRadius: "4px" }}>
+            <MoreVert />
+          </IconButton>
         </div>
       </div>
       <hr />
-      <div className="modules__body">
-        <ul className="list-group modules__list">
-          {modules.map((module) => (
-            <li className="list-group-item list-group-item-secondary">
-              <div className="modules__list__item modules__body__header ">
-                <div className="modules__item__leading">
-                  <FontAwesomeIcon
-                    icon={faGripVertical}
-                    className="grip__icon"
-                  />
-                  <h6>{module.name}</h6>
-                </div>
-                <div className="modules__body__header__buttons">
-                  <FontAwesomeIcon
-                    icon={faCheckCircle}
-                    className="check__icon"
-                  />
-                  <FontAwesomeIcon
-                    icon={faEllipsisVertical}
-                    className="more__icon"
-                  />
-                </div>
+      <List className="kanbas__list">
+        {modules.map((module) => (
+          <CollapsibleListItem
+            title={module.name}
+            description={module.description}
+            actions={
+              <div className="list__item__actions">
+                <IconButton size="small">
+                  <CheckCircle color="success" />
+                </IconButton>
+                <IconButton size="small">
+                  <Add />
+                </IconButton>
+                <IconButton size="small">
+                  <MoreVert />
+                </IconButton>
               </div>
-              <ul className="list-group">
-                {module.sections.map((section) => (
-                  <li className="list-group-item">
-                    <div className="modules__body__section">
-                      <div className="modules__body__section__header modules__list__item">
-                        <div className="modules__item__leading">
-                          <FontAwesomeIcon
-                            icon={faGripVertical}
-                            className="grip__icon"
-                          />
-                          <h6>{section.name}</h6>
-                        </div>
-                        <div
-                          className={"modules__body__section__header__buttons"}
-                        >
-                          <FontAwesomeIcon
-                            icon={faCheckCircle}
-                            className="check__icon"
-                          />
-                          <FontAwesomeIcon
-                            icon={faEllipsisVertical}
-                            className="more__icon"
-                          />
-                        </div>
-                      </div>
-                      <ul className="list-group">
-                        {section.items.map((item) => (
-                          <li className="list-group-item">
-                            <div className="modules__list__item">
-                              <div className="modules__item__leading">
-                                <FontAwesomeIcon
-                                  icon={faGripVertical}
-                                  className="grip__icon"
-                                />
-                                {item.type === "link" ? (
-                                  <>
-                                    <FontAwesomeIcon
-                                      icon={faLink}
-                                      className="link__icon"
-                                    />
-                                    <h6 className="modules__item__title link">
-                                      {item.name}
-                                    </h6>
-                                  </>
-                                ) : (
-                                  <h6 className="modules__item__title ">
-                                    {item.name}
-                                  </h6>
-                                )}
-                              </div>
-                              <div
-                                className={
-                                  "modules__body__section__item__header__buttons"
-                                }
-                              >
-                                <FontAwesomeIcon
-                                  icon={faCheckCircle}
-                                  className="check__icon"
-                                />
-                                <FontAwesomeIcon
-                                  icon={faEllipsisVertical}
-                                  className="more__icon"
-                                />
-                              </div>
-                            </div>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            </li>
-          ))}
-        </ul>
-      </div>
+            }
+          ></CollapsibleListItem>
+        ))}
+      </List>
     </div>
   );
 };

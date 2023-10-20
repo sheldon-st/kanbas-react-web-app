@@ -1,0 +1,182 @@
+[
+  {
+    "_id": "M101",
+    "name": "Introduction to Rocket Propulsion",
+    "description": "Basic principles of rocket propulsion and rocket engines.",
+    "course": "RS101"
+  },
+  {
+    "_id": "M102",
+    "name": "Fuel and Combustion",
+    "description": "Understanding rocket fuel, combustion processes, and efficiency.",
+    "course": "RS101"
+  },
+  {
+    "_id": "M103",
+    "name": "Nozzle Design",
+    "description": "Principles of rocket nozzle design and performance optimization.",
+    "course": "RS101"
+  },
+  {
+    "_id": "M201",
+    "name": "Fundamentals of Aerodynamics",
+    "description": "Basic aerodynamic concepts and fluid dynamics principles.",
+    "course": "RS102"
+  },
+  {
+    "_id": "M202",
+    "name": "Subsonic and Supersonic Flow",
+    "description": "Understanding subsonic and supersonic aerodynamic behaviors.",
+    "course": "RS102"
+  },
+  {
+    "_id": "M203",
+    "name": "Aerodynamic Heating",
+    "description": "Study of aerodynamic heating and thermal protection systems.",
+    "course": "RS102"
+  },
+  {
+    "_id": "M301",
+    "name": "Spacecraft Structural Design",
+    "description": "Fundamentals of designing spacecraft structures and materials selection.",
+    "course": "RS103"
+  },
+  {
+    "_id": "M302",
+    "name": "Orbital Mechanics",
+    "description": "Understanding orbital dynamics and mission planning.",
+    "course": "RS103"
+  },
+  {
+    "_id": "M303",
+    "name": "Spacecraft Systems Engineering",
+    "description": "Overview of spacecraft systems and subsystems engineering.",
+    "course": "RS103"
+  },
+  {
+    "_id": "M401",
+    "name": "Database Management Systems",
+    "description": "Introduction to database management systems and their applications.",
+    "course": "CS3200"
+  },
+  {
+    "_id": "M402",
+    "name": "Web Development",
+    "description": "Introduction to web development and web technologies.",
+    "course": "CS3200"
+  },
+  {
+    "_id": "M403",
+    "name": "Software Engineering",
+    "description": "Introduction to software engineering principles and practices.",
+    "course": "CS3200"
+  },
+  {
+    "_id": "M501",
+    "name": "Computer Networks",
+    "description": "Introduction to computer networks and network protocols.",
+    "course": "CS4550"
+  },
+  {
+    "_id": "M502",
+    "name": "Distributed Systems",
+    "description": "Introduction to distributed systems and their applications.",
+    "course": "CS4550"
+  },
+  {
+    "_id": "M503",
+    "name": "Cloud Computing",
+    "description": "Introduction to cloud computing and cloud services.",
+    "course": "CS4550"
+  },
+  {
+    "_id": "M601",
+    "name": "Information Security",
+    "description": "Introduction to information security and security protocols.",
+    "course": "IS4300"
+  },
+  {
+    "_id": "M602",
+    "name": "Cybersecurity",
+    "description": "Introduction to cybersecurity and cyber threats.",
+    "course": "IS4300"
+  },
+  {
+    "_id": "M603",
+    "name": "Network Security",
+    "description": "Introduction to network security and network security protocols.",
+    "course": "IS4300"
+  },
+  {
+    "_id": "M701",
+    "name": "Computer Architecture",
+    "description": "Introduction to computer architecture and computer hardware.",
+    "course": "C4300"
+  },
+  {
+    "_id": "M702",
+    "name": "Operating Systems",
+    "description": "Introduction to operating systems and their functions.",
+    "course": "C4300"
+  },
+  {
+    "_id": "M703",
+    "name": "Computer Organization",
+    "description": "Introduction to computer organization and computer hardware design.",
+    "course": "C4300"
+  },
+  {
+    "_id": "M801",
+    "name": "Data Science",
+    "description": "Introduction to data science and data analysis techniques.",
+    "course": "CS5200"
+  },
+  {
+    "_id": "M802",
+    "name": "Machine Learning",
+    "description": "Introduction to machine learning and its applications.",
+    "course": "CS5200"
+  },
+  {
+    "_id": "M803",
+    "name": "Artificial Intelligence",
+    "description": "Introduction to artificial intelligence and its applications.",
+    "course": "CS5200"
+  },
+  {
+    "_id": "M901",
+    "name": "Graphic Design",
+    "description": "Introduction to graphic design principles and techniques.",
+    "course": "ARTG2260"
+  },
+  {
+    "_id": "M902",
+    "name": "Digital Art",
+    "description": "Introduction to digital art and its applications.",
+    "course": "ARTG2260"
+  },
+  {
+    "_id": "M903",
+    "name": "Visual Communication",
+    "description": "Introduction to visual communication and its applications.",
+    "course": "ARTG2260"
+  },
+  {
+    "_id": "M1001",
+    "name": "3D Modeling",
+    "description": "Introduction to 3D modeling and its applications.",
+    "course": "ARTD3200"
+  },
+  {
+    "_id": "M1002",
+    "name": "Animation",
+    "description": "Introduction to animation principles and techniques.",
+    "course": "ARTD3200"
+  },
+  {
+    "_id": "M1003",
+    "name": "Game Design",
+    "description": "Introduction to game design principles and techniques.",
+    "course": "ARTD3200"
+  }
+]

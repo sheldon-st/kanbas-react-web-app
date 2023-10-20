@@ -1,107 +1,121 @@
 import React, { FC } from "react";
-import { ICourse } from "../../../types/interfaces";
-import { courses } from "../../../data/courses";
-import { useParams, useLocation, NavLink } from "react-router-dom";
-import "../../../scss/lists.scss";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faGripVertical,
-  faCheckCircle,
-  faEllipsisVertical,
-  faPenToSquare,
-  faAdd,
-} from "@fortawesome/free-solid-svg-icons";
 import { EditAssignment } from "./edit";
+import db from "../../../Database";
+import {
+  Add,
+  CheckCircle,
+  DragIndicatorOutlined,
+  MoreVert,
+} from "@mui/icons-material";
+import {
+  List,
+  Accordion,
+  ListItem,
+  Icon,
+  IconButton,
+  Select,
+  MenuItem,
+  Typography,
+  Chip,
+  TextField,
+} from "@mui/material";
+import { Button } from "../../ui/Button";
+import { ListSubItem } from "../../ui/List";
+import { CollapsibleListItem } from "../../ui/List/CollapsibleListItem";
+import { useCourse } from "../../../hooks/CourseContext";
+
 export const Assignments: FC = () => {
-  const params = useParams();
-  const location = useLocation();
-
-  const { courseId } = params;
-  console.log(params);
-  console.log(location);
-
-  // async find course by id:
-  const course: ICourse | undefined = courses.find(
-    (course) => course.id === courseId
-  );
-
-  // get path starting with current course id:
-  const currentPath = location.pathname.split("/").slice(2);
+  const course = useCourse().course;
 
   if (!course) {
     return <div>Course not found</div>;
   }
 
+  const assignments = db.assignments.filter(
+    (assignment) => assignment.course === course.name
+  );
+
   return (
-    <div style={{ width: "100%" }}>
-      <div className="list__actions">
-        <input
-          type="text"
-          className="form-control search__input p-2"
+    <div className="page__content">
+      <div className="page__header">
+        <TextField
+          size="small"
           placeholder="Search for Assignment"
+          sx={{ width: "100%", maxWidth: "250px" }}
         />
-        <div className="button__group">
-          <button
-            className="btn btn-secondary"
-            style={{ gap: "0.5rem", display: "flex", alignItems: "center" }}
-          >
-            <FontAwesomeIcon icon={faAdd} />
-            Group
-          </button>
-          <button
-            className="btn btn-secondary"
-            style={{ gap: "0.5rem", display: "flex", alignItems: "center" }}
-          >
-            <FontAwesomeIcon icon={faAdd} />
+        <div className="page__header__actions">
+          <Button startIcon={<Add />}>Group</Button>
+          <Button startIcon={<Add />} priority="primary">
             Assignment
-          </button>
+          </Button>
+          <IconButton sx={{ backgroundColor: "#f7f7f7", borderRadius: "4px" }}>
+            <MoreVert />
+          </IconButton>
         </div>
       </div>
       <hr />
-      <div className="list__container">
-        <div className="list__item list__header">
-          <div className="list__item__leading">
-            <FontAwesomeIcon icon={faGripVertical} className="grip__icon" />
-            <h6>Assignments</h6>
-          </div>
-          <div className={"list__item__trailing"}>
-            <div className="list__item__tag rounded ">40% of total</div>
-
-            <FontAwesomeIcon icon={faEllipsisVertical} className="more__icon" />
-          </div>
-        </div>
-        <ul className="list__group">
-          {course.assignments.map((assignment) => (
-            <li key={assignment.id} className="list__item list__item__success">
-              <div className="list__item__leading">
-                <FontAwesomeIcon icon={faGripVertical} className="grip__icon" />
-                <FontAwesomeIcon icon={faPenToSquare} className="pen__icon" />
-                <div className="list__item__body">
-                  <NavLink
-                    to={`/courses/${course.id}/assignments/${assignment.id}`}
+      <List>
+        <CollapsibleListItem
+          title="Assignments"
+          actions={
+            <div className="list__item__actions">
+              <Chip label="40% of Total" variant="outlined" />
+              <IconButton size="small">
+                <Add />
+              </IconButton>
+              <IconButton size="small">
+                <MoreVert />
+              </IconButton>
+            </div>
+          }
+        >
+          {assignments.map((assignment) => (
+            <ListSubItem
+              to={`/kanbas/courses/${course._id}/assignments/${assignment._id}`}
+              key={assignment._id}
+            >
+              <div className="item__leading">
+                <DragIndicatorOutlined
+                  sx={{
+                    fontSize: 20,
+                    color: "#5f6368",
+                    marginRight: "5px",
+                  }}
+                />
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "start",
+                  }}
+                >
+                  <Typography
+                    variant="body1"
+                    fontWeight={"bold"}
+                    component="span"
                   >
-                    <h6>{assignment.name}</h6>
-                  </NavLink>
-                  <span>{assignment.description}</span>
+                    {assignment.title}
+                  </Typography>
                   <span>
-                    <span style={{ fontWeight: "bold" }}>Due </span>
-                    <span>{assignment.dueDate.toLocaleString()}</span>
-                    <span> | </span>
-                    <span>{assignment.id} pts</span>
+                    Multiple Modules | Due:{" "}
+                    {assignment.dueDate.toLocaleDateString()} at{" "}
+                    {assignment.dueDate.toLocaleTimeString()} |{" "}
+                    {assignment.points} pts
                   </span>
                 </div>
               </div>
-              <div className={"list__item__trailing"}>
-                <FontAwesomeIcon icon={faCheckCircle} className="check__icon" />
-                <FontAwesomeIcon
-                  icon={faEllipsisVertical}
-                  className="more__icon"
-                />
+              <div>
+                <IconButton size="small">
+                  <CheckCircle color="success" />
+                </IconButton>
+                <IconButton size="small">
+                  <MoreVert />
+                </IconButton>
               </div>
-            </li>
+            </ListSubItem>
           ))}
-        </ul>
-      </div>
+        </CollapsibleListItem>
+      </List>
     </div>
   );
 };

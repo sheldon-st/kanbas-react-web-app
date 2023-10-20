@@ -1,4 +1,4 @@
-@import "bootstrap/scss/functions";
+/* @import "bootstrap/scss/functions";
 
 $breadcrumb-divider: quote(">");
 $primary: #be4648;
@@ -24,7 +24,17 @@ $secondary: lightgrey;
 @import "bootstrap/scss/buttons";
 
 //@import "bootstrap/scss/list-group";
-
+ */
 a {
   text-decoration: none;
+}
+
+// MUI Variables
+$primary: #be4648;
+$secondary: lightgrey;
+
+.input__field {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }

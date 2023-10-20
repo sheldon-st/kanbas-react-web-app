@@ -1,0 +1,162 @@
+@use "../../../scss/globals.scss";
+
+.mobileNavigation {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  //border: 1px solid black;
+  background-color: #1a1a1a;
+  color: white;
+  //position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  position: relative;
+}
+
+.mobileNavigationHeader {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  //padding: map-get(bootstrap.$spacers, 3);
+  position: sticky;
+  //border: 1px solid black;
+}
+
+.mobileNavigationItems {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  //border: 1px solid black;
+  // padding: map-get(bootstrap.$spacers, 3);
+}
+
+.mobileNavigationItemsHidden {
+  display: none;
+}
+
+.fullscreenNav {
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  //display: none;
+}
+
+.kanbasNavigation {
+  top: 0;
+  left: 0;
+  height: 100vh;
+  display: flex;
+  width: 84px;
+  flex-direction: column;
+  //border: solid 1px black;
+  background-color: #1a1a1a;
+
+  // stays to top left of screen but maintain flex layout
+  position: sticky;
+  padding: 0;
+  flex-shrink: 0;
+  flex-grow: 0;
+}
+/* 
+.navigationItem {
+  text-decoration: none !important;
+  display: flex;
+  //fill: bootstrap.$primary;
+  //cursor: grab;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+
+  padding: 5px;
+  gap: 5px;
+
+  font-size: 0.875rem;
+
+  svg {
+    width: 24px;
+    height: 24px;
+    // color: bootstrap.$primary;
+    // border: solid 1px black;
+  }
+} */
+
+.mobileNavigationItem {
+  text-decoration: none !important;
+  display: flex;
+  // fill: bootstrap.$primary;
+  //cursor: grab;
+  flex-direction: row;
+  align-items: center;
+  // color: bootstrap.$primary;
+
+  padding: 5px;
+  gap: 5px;
+
+  font-size: 0.875rem;
+
+  width: 100%;
+
+  svg {
+    width: 24px;
+    height: 24px;
+    // color: bootstrap.$primary;
+    // border: solid 1px black;
+  }
+}
+
+.active {
+  background-color: white;
+  //color: bootstrap.$primary;
+  color: globals.$primary !important;
+}
+
+.navigationItem {
+  text-decoration: none !important;
+  display: flex;
+  //fill: bootstrap.$primary;
+  //cursor: grab;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+
+  padding: 5px;
+  gap: 5px;
+
+  font-size: 0.875rem;
+
+  svg {
+    color: globals.$primary;
+  }
+}
+
+.fullscreenNav__header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  // padding: map-get(bootstrap.$spacers, 3);
+  position: sticky;
+  //border: 1px solid black;
+}
+
+.secondaryNav {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  //border: 1px solid black;
+  background-color: white;
+  color: white;
+  //position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  position: relative;
+}

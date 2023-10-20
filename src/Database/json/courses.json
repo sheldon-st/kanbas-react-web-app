@@ -1,0 +1,79 @@
+[
+  {
+    "_id": "1",
+    "name": "CS4550",
+    "number": "19753",
+    "semester": "202410",
+    "longName": "CS4550 - Web Development",
+    "startDate": "2023-09-07",
+    "endDate": "2023-12-07",
+    "description": "Course 1 description",
+    "color": "#759AAB"
+  },
+  {
+    "_id": "2",
+    "name": "IS4300",
+    "number": "10074",
+    "semester": "202410",
+    "longName": "IS4300 - Human Computer Interaction",
+    "startDate": "2023-09-07",
+    "endDate": "2023-12-07",
+    "description": "Course 2 description",
+    "color": "#3F2E56"
+  },
+  {
+    "_id": "3",
+    "name": "CS3200",
+    "number": "10074",
+    "semester": "202410",
+    "longName": "CS3200 - Database Design",
+    "startDate": "2023-09-07",
+    "endDate": "2023-12-07",
+    "description": "Course 3 description",
+    "color": "#BF1363"
+  },
+  {
+    "_id": "4",
+    "name": "C4300",
+    "number": "10074",
+    "semester": "202410",
+    "longName": "C4300 - Programming Languages",
+    "startDate": "2023-09-07",
+    "endDate": "2023-12-07",
+    "description": "Course 4 description",
+    "color": "#5887FF"
+  },
+  {
+    "_id": "5",
+    "name": "CS5200",
+    "number": "10074",
+    "semester": "202410",
+    "longName": "CS5200 - Database Management Systems",
+    "startDate": "2023-09-07",
+    "endDate": "2023-12-07",
+    "description": "Course 5 description",
+    "color": "#102E4A"
+  },
+  {
+    "_id": "6",
+    "name": "ARTG2260",
+    "number": "10074",
+    "semester": "202410",
+    "longName": "ARTG2260 - Typography",
+    "startDate": "2023-09-07",
+    "endDate": "2023-12-07",
+    "description": "Course 6 description",
+    "color": "#65334D"
+  },
+  {
+    "_id": "7",
+    "name": "ARTD3200",
+    "number": "10074",
+    "semester": "202410",
+    "longName": "ARTD3200 - Design Studio",
+    "startDate": "2023-09-07",
+    "endDate": "2023-12-07",
+    "description": "Course 7 description",
+    "color": "#645986"
+  }
+]

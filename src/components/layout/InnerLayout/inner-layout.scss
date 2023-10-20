@@ -1,0 +1,131 @@
+//@use "../../scss/globals.scss" as bootstrap;
+.accountLayout {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  // gap: map-get(bootstrap.$spacers, 3);
+  //border: 1px solid purple;
+  justify-content: flex-start;
+  padding: 0;
+}
+
+.accountLayout__body {
+  display: flex;
+  flex-direction: row;
+  // border: 1px solid black;
+}
+
+.secondaryLayout__header {
+  display: flex;
+  flex-direction: column;
+  // width: 100%;
+  // align-items: center;
+  // padding: map-get(bootstrap.$spacers, 3);
+  // padding-left: 0;
+
+  // margin: 0;
+  // gap: map-get(bootstrap.$spacers, 3);
+  // border: 1px solid black;
+}
+
+.secondaryLayout__header__row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  // width: 100%;
+  // padding: map-get(bootstrap.$spacers, 3);
+  // padding-left: 0;
+  // margin: 0;
+  //gap: map-get(bootstrap.$spacers, 3);
+  // border: 1px solid black;
+}
+
+.header__container {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+hr {
+  margin: 0;
+  padding: 0;
+  // margin-bottom: map-get(bootstrap.$spacers, 3);
+}
+
+.page__layout {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  flex-wrap: nowrap;
+}
+
+.page__layout__smaller {
+  display: flex;
+
+  width: 100%;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.page__header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0;
+  gap: 12px;
+  padding: 0;
+  //padding-bottom: 8px;
+  width: 100%;
+  //border: solid 1px #e5e7eb;
+  white-space: wrap;
+
+  * {
+    margin: 0;
+  }
+}
+
+.page__header__actions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  justify-content: flex-end;
+  white-space: wrap;
+  flex-wrap: wrap;
+}
+
+// LISTS
+
+.kanbas__list {
+  gap: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.list__item__actions {
+  display: inline-flex;
+}
+
+.page__content {
+  width: 100%;
+  gap: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.item__leading {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.item__trailing {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
