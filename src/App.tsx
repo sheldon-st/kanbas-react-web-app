@@ -20,6 +20,7 @@ import { Assignments, EditAssignment } from "./components/courses/Assignments";
 import { Grades } from "./components/courses/Grades";
 import { Modules } from "./components/courses/Modules";
 import { Typography, Box } from "@mui/material";
+import HelloWorld from "./Labs/a3/HelloWorld";
 import Labs from "./Labs";
 function App() {
   return (
@@ -99,6 +100,7 @@ function App() {
             />
           </Route>
           <Route path="/labs" element={<Labs />} />
+          <Route path="/hello" element={<HelloWorld />} />
         </Routes>
       </BrowserRouter>
     </>
