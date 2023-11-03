@@ -22,6 +22,8 @@ import { Modules } from "./components/courses/Modules";
 import { Typography, Box } from "@mui/material";
 import HelloWorld from "./Labs/a3/HelloWorld";
 import Labs from "./Labs";
+import Assignment3 from "./Labs/a3";
+import Assignment4 from "./Labs/a4";
 function App() {
   return (
     <>
@@ -99,7 +101,11 @@ function App() {
               }
             />
           </Route>
-          <Route path="/labs" element={<Labs />} />
+          <Route path="/labs/" element={<Labs />}>
+            <Route path="a3" element={<Assignment3 />} />
+            <Route path="a4" element={<Assignment4 />} />
+          </Route>
+
           <Route path="/hello" element={<HelloWorld />} />
         </Routes>
       </BrowserRouter>
