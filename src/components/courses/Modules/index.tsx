@@ -1,11 +1,51 @@
 import React, { FC } from "react";
 //import "./modules.scss";
-import { List, IconButton, Select, MenuItem } from "@mui/material";
+import {
+  List,
+  IconButton,
+  Select,
+  MenuItem,
+  Modal,
+  Fade,
+  Box,
+  Typography,
+  TextField,
+} from "@mui/material";
 import db from "../../../Database";
-import { Add, CheckCircle, MoreVert } from "@mui/icons-material";
+import {
+  Add,
+  CheckCircle,
+  MoreVert,
+  Delete,
+  EditNoteOutlined,
+} from "@mui/icons-material";
 import { Button } from "../../ui/Button";
 import { CollapsibleListItem } from "../../ui/List/CollapsibleListItem";
 import { useCourse } from "../../../hooks/CourseContext";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  addNewModule,
+  deleteModule,
+  updateExistingModule,
+  setModule,
+  setModules,
+} from "./moduleReducer";
+import { IModule } from "../../../types";
+
+export const modalStyle = {
+  position: "absolute" as "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 400,
+  bgcolor: "background.paper",
+  border: "2px solid #000",
+  boxShadow: 24,
+  p: 4,
+  display: "flex",
+  flexDirection: "column",
+  gap: "1rem",
+};
 
 export const Modules: FC = () => {
   const course = useCourse().course;
@@ -14,7 +54,41 @@ export const Modules: FC = () => {
     return <div>Course not found</div>;
   }
 
-  const modules = db.modules.filter((module) => module.course === course.name);
+  const dispatch = useDispatch();
+  const modules = useSelector((state) => state.modulesReducer.modules);
+  const module = useSelector((state) => state.modulesReducer.module);
+
+  const [open, setOpen] = React.useState(false);
+  const handleClose = () => {
+    // console.log(course);
+    setOpen(false);
+  };
+
+  const handleEdit = (module: IModule) => {
+    dispatch(setModule(module));
+    setOpen(true);
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log("submit");
+    // console log form data
+    //dispatch(addNewModule(module));
+    handleClose();
+
+    if (module._id) {
+      console.log("update");
+      dispatch(updateExistingModule(module));
+    } else {
+      console.log("add");
+      dispatch(
+        addNewModule({
+          ...module,
+          _id: new Date().getTime().toString(),
+        })
+      );
+    }
+  };
 
   return (
     <div className="page__content">
@@ -33,7 +107,7 @@ export const Modules: FC = () => {
             <MenuItem value="all">Publish All</MenuItem>
             <MenuItem value="none">Unpublish All</MenuItem>
           </Select>
-          <Button startIcon={<Add />} priority="primary">
+          <Button startIcon={<Add />} priority="primary" onClick={handleEdit}>
             Module
           </Button>
           <IconButton sx={{ backgroundColor: "#f7f7f7", borderRadius: "4px" }}>
@@ -43,26 +117,70 @@ export const Modules: FC = () => {
       </div>
       <hr />
       <List className="kanbas__list">
-        {modules.map((module) => (
-          <CollapsibleListItem
-            title={module.name}
-            description={module.description}
-            actions={
-              <div className="list__item__actions">
-                <IconButton size="small">
-                  <CheckCircle color="success" />
-                </IconButton>
-                <IconButton size="small">
-                  <Add />
-                </IconButton>
-                <IconButton size="small">
-                  <MoreVert />
-                </IconButton>
-              </div>
-            }
-          ></CollapsibleListItem>
-        ))}
+        {modules
+          .filter((module) => module.course === course.name)
+          .map((module) => (
+            <CollapsibleListItem
+              title={module.name}
+              description={module.description}
+              actions={
+                <div className="list__item__actions">
+                  <IconButton onClick={() => handleEdit(module)}>
+                    <EditNoteOutlined />
+                  </IconButton>
+                  <IconButton
+                    onClick={() => {
+                      dispatch(deleteModule(module));
+                    }}
+                  >
+                    <Delete />
+                  </IconButton>
+                </div>
+              }
+            ></CollapsibleListItem>
+          ))}
       </List>
+      <Modal open={open} onClose={handleClose}>
+        <Fade in={open}>
+          <form onSubmit={handleSubmit}>
+            <Box sx={modalStyle}>
+              <TextField
+                label="Module Name"
+                name="name"
+                required
+                onChange={(e) =>
+                  dispatch(
+                    setModule({
+                      ...module,
+                      name: e.target.value,
+                      course: course.name,
+                    })
+                  )
+                }
+                value={module.name}
+              />
+              <TextField
+                label="Module Description"
+                name="description"
+                required
+                onChange={(e) =>
+                  dispatch(
+                    setModule({ ...module, description: e.target.value })
+                  )
+                }
+                value={module.description}
+              />
+              <Button onClick={handleClose}>Cancel</Button>
+              <Button
+                type="submit"
+                disabled={!module.name || !module.description}
+              >
+                Save
+              </Button>
+            </Box>
+          </form>
+        </Fade>
+      </Modal>
     </div>
   );
 };

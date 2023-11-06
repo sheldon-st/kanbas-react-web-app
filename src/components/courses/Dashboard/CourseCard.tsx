@@ -65,7 +65,9 @@ export const CourseCard: FC<{
               className={styles.course__title}
               color={course.color}
             >
-              {course.longName}
+              <NavLink to={`/kanbas/courses/${course._id}`} className={" card"}>
+                {course.longName}
+              </NavLink>
             </Typography>
             <Typography variant="body2" color="text.secondary">
               {course.name}.{course.semester}.{course.number} <br />

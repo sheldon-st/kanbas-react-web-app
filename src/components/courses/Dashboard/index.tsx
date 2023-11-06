@@ -20,9 +20,6 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import dayjs from "dayjs";
 
-interface IDashboardProps {
-  children: React.ReactNode;
-}
 
 export const modalStyle = {
   position: "absolute" as "absolute",
@@ -39,9 +36,27 @@ export const modalStyle = {
   gap: "1rem",
 };
 
-export const Dashboard: FC = () => {
+export interface IDashboardState {
+  courses: ICourse[];
+  course: ICourse;
+  setCourses: (courses: ICourse[]) => void;
+  setCourse: (course: ICourse) => void;
+  addNewCourse: (course: ICourse) => void;
+  deleteCourse: (course: ICourse) => void;
+  updateExistingCourse: (course: ICourse) => void;
+}
+
+export const Dashboard: FC<IDashboardState> = ({
+  courses,
+  course,
+  setCourses,
+  setCourse,
+  addNewCourse,
+  deleteCourse,
+  updateExistingCourse,
+  ...props
+}) => {
   const nav = useContext(NavigationContext);
-  const [courses, setCourses] = useState(db.courses);
 
   useEffect(() => {
     nav.setCurrent(<Typography variant="h6">Dashboard</Typography>);
@@ -57,34 +72,6 @@ export const Dashboard: FC = () => {
     console.log("open");
     e.stopPropagation();
     setOpen(true);
-  };
-
-  const addNewCourse = (course: ICourse) => {
-    setCourses([
-      ...courses,
-      {
-        ...course,
-        _id: new Date().getTime().toString(),
-        color: "#000000",
-        semester: "202410",
-      },
-    ]);
-  };
-
-  const deleteCourse = (course: ICourse) => {
-    console.log(course);
-    setCourses(courses.filter((c) => c._id !== course._id));
-  };
-
-  const updateExistingCourse = (course: ICourse) => {
-    setCourses(
-      courses.map((c) => {
-        if (c._id === course._id) {
-          return course;
-        }
-        return c;
-      })
-    );
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -106,14 +93,6 @@ export const Dashboard: FC = () => {
       });
     }
   };
-
-  const [course, setCourse] = useState<ICourse>({
-    _id: "",
-    name: "",
-    number: "",
-    startDate: undefined,
-    endDate: undefined,
-  });
 
   const handleEdit = (course: ICourse) => {
     console.log(course);
