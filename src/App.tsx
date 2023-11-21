@@ -34,8 +34,11 @@ import { Provider } from "react-redux";
 import axios from "axios";
 
 function App() {
-  const baseURL = process.env.REACT_APP_API_BASE;
-  const url = `${baseURL}/courses`;
+  const baseURL = import.meta.env.VITE_REACT_APP_API_BASE;
+  console.log(baseURL);
+  let url = `${baseURL}/courses`;
+ // url = "https://kanbas-node-server-app-muhm.onrender.com/api/modules";
+  console.log(url);
   const [courses, setCourses] = useState([]);
 
   const findAllCourses = async () => {

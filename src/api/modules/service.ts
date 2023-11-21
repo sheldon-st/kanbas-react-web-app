@@ -1,7 +1,9 @@
 import axios from "axios";
-const baseURL = process.env.REACT_APP_API_BASE;
-const MODULES_URL = baseURL + "/modules";
+const baseURL = import.meta.env.VITE_REACT_APP_API_BASE;
+let MODULES_URL = baseURL + "/modules";
+//MODULES_URL = "https://kanbas-node-server-app-muhm.onrender.com/api/modules";
 export const deleteModule = async (moduleId) => {
+  console.log(MODULES_URL);
   const response = await axios.delete(`${MODULES_URL}/${moduleId}`);
   return response.data;
 };
