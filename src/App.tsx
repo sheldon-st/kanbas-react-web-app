@@ -35,7 +35,7 @@ import axios from "axios";
 
 function App() {
   const baseURL = process.env.REACT_APP_API_BASE;
-  const url = `${baseURL}/api/courses`;
+  const url = `${baseURL}/courses`;
   const [courses, setCourses] = useState([]);
 
   const findAllCourses = async () => {
