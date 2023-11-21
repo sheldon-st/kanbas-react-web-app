@@ -19,9 +19,9 @@ import { Assignments, EditAssignment } from "./components/courses/Assignments";
 import { Grades } from "./components/courses/Grades";
 import { Modules } from "./components/courses/Modules";
 import { Typography, Box } from "@mui/material";
-import Assignment4 from "./labs/a4";
-import Assignment5 from "./labs/a5";
-import Labs from "./labs";
+import Assignment4 from "./Labs/a4";
+import Assignment5 from "./Labs/a5";
+import Labs from "./Labs";
 
 import React, { FC, useEffect, useContext, useState } from "react";
 import db from "./Database";
