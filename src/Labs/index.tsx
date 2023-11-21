@@ -43,7 +43,6 @@ function Labs() {
           onChange={handleChange}
           aria-label="basic tabs example"
         >
-          <Tab label={<NavLink to="/labs/a3">Assignment 3</NavLink>} />
           <Tab label={<NavLink to="/labs/a4">Assignment 4</NavLink>} />
           <Tab label={<NavLink to="/labs/a5">Assignment 5</NavLink>} />
 
