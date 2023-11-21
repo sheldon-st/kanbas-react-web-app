@@ -162,8 +162,6 @@ function App() {
               <Route path="a4" element={<Assignment4 />} />
               <Route path="a5" element={<Assignment5 />} />
             </Route>
-
-            <Route path="/hello" element={<HelloWorld />} />
           </Routes>
         </Provider>
       </BrowserRouter>
