@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useEffect } from "react";
 //import "./modules.scss";
 import {
   List,
@@ -11,7 +11,6 @@ import {
   Typography,
   TextField,
 } from "@mui/material";
-import db from "../../../Database";
 import {
   Add,
   CheckCircle,
@@ -31,7 +30,11 @@ import {
   setModules,
 } from "./moduleReducer";
 import { IModule } from "../../../types";
-
+import {
+  findModulesForCourse,
+  createModule,
+} from "../../../api/modules/client";
+import * as client from "../../../api/modules/service";
 export const modalStyle = {
   position: "absolute" as "absolute",
   top: "50%",
@@ -55,6 +58,12 @@ export const Modules: FC = () => {
   }
 
   const dispatch = useDispatch();
+  useEffect(() => {
+    findModulesForCourse(course.name).then((modules) => {
+      dispatch(setModules(modules));
+    });
+  }, [course]);
+
   const modules = useSelector((state) => state.modulesReducer.modules);
   const module = useSelector((state) => state.modulesReducer.module);
 
@@ -64,12 +73,23 @@ export const Modules: FC = () => {
     setOpen(false);
   };
 
-  const handleEdit = (module: IModule) => {
-    dispatch(setModule(module));
+  const handleEdit = (module?: IModule) => {
+    if (!module) {
+      dispatch(
+        setModule({
+          name: "",
+          course: course.name || "",
+          _id: "",
+          description: "",
+        })
+      );
+    } else {
+      dispatch(setModule(module));
+    }
     setOpen(true);
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log("submit");
     // console log form data
@@ -78,16 +98,30 @@ export const Modules: FC = () => {
 
     if (module._id) {
       console.log("update");
+      const status = await client.updateModule(module);
+      console.log(status);
+
       dispatch(updateExistingModule(module));
     } else {
       console.log("add");
-      dispatch(
-        addNewModule({
-          ...module,
-          _id: new Date().getTime().toString(),
-        })
-      );
+      createModule(course.name, {
+        ...module,
+        _id: new Date().getTime().toString(),
+      }).then((module) => {
+        dispatch(
+          addNewModule({
+            ...module,
+            _id: new Date().getTime().toString(),
+          })
+        );
+      });
     }
+  };
+
+  const handleDelete = (module: IModule) => {
+    client.deleteModule(module._id).then(() => {
+      dispatch(deleteModule(module));
+    });
   };
 
   return (
@@ -107,7 +141,11 @@ export const Modules: FC = () => {
             <MenuItem value="all">Publish All</MenuItem>
             <MenuItem value="none">Unpublish All</MenuItem>
           </Select>
-          <Button startIcon={<Add />} priority="primary" onClick={handleEdit}>
+          <Button
+            startIcon={<Add />}
+            priority="primary"
+            onClick={() => handleEdit()}
+          >
             Module
           </Button>
           <IconButton sx={{ backgroundColor: "#f7f7f7", borderRadius: "4px" }}>
@@ -130,7 +168,7 @@ export const Modules: FC = () => {
                   </IconButton>
                   <IconButton
                     onClick={() => {
-                      dispatch(deleteModule(module));
+                      handleDelete(module);
                     }}
                   >
                     <Delete />

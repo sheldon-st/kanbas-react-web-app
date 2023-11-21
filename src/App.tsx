@@ -23,40 +23,53 @@ import HelloWorld from "./Labs/a3/HelloWorld";
 import Labs from "./Labs";
 import Assignment3 from "./Labs/a3";
 import Assignment4 from "./Labs/a4";
+import Assignment5 from "./Labs/a5";
+
 import React, { FC, useEffect, useContext, useState } from "react";
 import db from "./Database";
 import { IDashboardState } from "./components/courses/Dashboard";
 import { CourseList } from "./components/courses/Courses";
 import store from "./store";
 import { Provider } from "react-redux";
+import axios from "axios";
+
 function App() {
-  const [courses, setCourses] = useState(db.courses);
-  const addNewCourse = (course: ICourse) => {
-    setCourses([
-      ...courses,
-      {
-        ...course,
-        _id: new Date().getTime().toString(),
-        color: "#000000",
-        semester: "202410",
-      },
-    ]);
+  const url = "https://kanbas-node-server-app-muhm.onrender.com/api/courses";
+  const [courses, setCourses] = useState([]);
+
+  const findAllCourses = async () => {
+    console.log("findAllCourses");
+    const response = await axios.get(url);
+    setCourses(response.data);
   };
 
-  const deleteCourse = (course: ICourse) => {
-    console.log(course);
+  useEffect(() => {
+    findAllCourses();
+  }, []);
+
+  const addCourse = async () => {
+    const response = await axios.post(url, course);
+    setCourses([response.data, ...courses]);
+    setCourse({ name: "" });
+  };
+
+  const deleteCourse = async (course: ICourse) => {
+    const response = await axios.delete(`${url}/${course._id}`);
     setCourses(courses.filter((c) => c._id !== course._id));
   };
 
-  const updateExistingCourse = (course: ICourse) => {
+  const updateExistingCourse = async (course: ICourse) => {
+    const response = await axios.put(`${url}/${course._id}`, course);
     setCourses(
       courses.map((c) => {
         if (c._id === course._id) {
-          return course;
+          return response.data;
+        } else {
+          return c;
         }
-        return c;
       })
     );
+    setCourse({ name: "" });
   };
 
   const [course, setCourse] = useState<ICourse>({
@@ -118,7 +131,7 @@ function App() {
                     course={course}
                     setCourses={setCourses}
                     setCourse={setCourse}
-                    addNewCourse={addNewCourse}
+                    addNewCourse={addCourse}
                     deleteCourse={deleteCourse}
                     updateExistingCourse={updateExistingCourse}
                   />
@@ -146,6 +159,7 @@ function App() {
             <Route path="/labs/" element={<Labs />}>
               <Route path="a3" element={<Assignment3 />} />
               <Route path="a4" element={<Assignment4 />} />
+              <Route path="a5" element={<Assignment5 />} />
             </Route>
 
             <Route path="/hello" element={<HelloWorld />} />

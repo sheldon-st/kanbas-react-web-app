@@ -1,4 +1,6 @@
 import Assignment3 from "./a3";
+import Assignment5 from "./a5";
+
 import { useState } from "react";
 import { Box, Tab, Tabs, Typography } from "@mui/material";
 import React, { Component } from "react";
@@ -46,6 +48,8 @@ function Labs() {
         >
           <Tab label={<NavLink to="/labs/a3">Assignment 3</NavLink>} />
           <Tab label={<NavLink to="/labs/a4">Assignment 4</NavLink>} />
+          <Tab label={<NavLink to="/labs/a5">Assignment 5</NavLink>} />
+
           <Tab label="Item Three" />
         </Tabs>
         <Outlet />

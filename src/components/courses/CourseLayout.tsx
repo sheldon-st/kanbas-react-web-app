@@ -12,31 +12,33 @@ import { NavigationContext } from "../../hooks/NavigationContext";
 import { BreadCrumbs } from "./Breadcrumbs";
 import { CourseContext, useCourse } from "../../hooks/CourseContext";
 import { getCurrentCourse } from "../../utils/course";
-import db from "../../Database";
-
+import axios from "axios";
 const CourseLayout: FC = () => {
   const nav = useContext(NavigationContext);
-  const [course, setCourse] = useState<ICourse | undefined>(undefined);
   // const c = useCourse();
-
-  const value = { course, setCourse };
-
   const params = useParams();
   const location = useLocation();
-
   const { courseId } = params;
   // console.log(params);
   //console.log(location);
 
   // async find course by id:
-  const cr = db.courses.find((course) => course._id === courseId);
+  const URL = "http://localhost:4000/api/courses";
+  const [course, setCourse] = useState<ICourse | null>(null);
+  const findCourseById = async (courseId) => {
+    const response = await axios.get(`${URL}/${courseId}`);
+    console.log(response.data);
+    setCourse(response.data);
+  };
 
   // return course;
+
+  const value = { course, setCourse };
 
   useEffect(() => {
     //nav.setTitle(breadcrumbs[0].props.children);
     nav.setCurrent(<BreadCrumbs />);
-    setCourse(cr);
+    setCourse(findCourseById(courseId));
   }, []);
 
   if (!course) {

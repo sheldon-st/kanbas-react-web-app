@@ -1,4 +1,3 @@
-import db from "../../../Database";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { IModule } from "../../../types";
 
@@ -6,7 +5,7 @@ const initialState: {
   modules: IModule[];
   module: IModule;
 } = {
-  modules: db.modules,
+  modules: [],
   module: { name: "", course: "", _id: "", description: "" },
 };
 
@@ -21,7 +20,7 @@ export const moduleSlice = createSlice({
       state.module = action.payload;
     },
     addNewModule: (state, action: PayloadAction<IModule>) => {
-      state.modules.push(action.payload);
+      state.modules = [action.payload, ...state.modules];
     },
     deleteModule: (state, action: PayloadAction<IModule>) => {
       state.modules = state.modules.filter((c) => c._id !== action.payload._id);

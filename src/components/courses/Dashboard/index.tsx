@@ -20,7 +20,6 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import dayjs from "dayjs";
 
-
 export const modalStyle = {
   position: "absolute" as "absolute",
   top: "50%",
@@ -59,6 +58,8 @@ export const Dashboard: FC<IDashboardState> = ({
   const nav = useContext(NavigationContext);
 
   useEffect(() => {
+    console.log("Dashboard");
+    console.log(courses);
     nav.setCurrent(<Typography variant="h6">Dashboard</Typography>);
   }, []);
 
