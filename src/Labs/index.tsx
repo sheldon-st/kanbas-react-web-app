@@ -1,6 +1,3 @@
-import Assignment3 from "./a3";
-import Assignment5 from "./a5";
-
 import { useState } from "react";
 import { Box, Tab, Tabs, Typography } from "@mui/material";
 import React, { Component } from "react";
