@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const baseURL = import.meta.env.VITE_REACT_APP_API_BASE;
-let COURSES_URL = baseURL + "/modules";
+let COURSES_URL = baseURL + "/courses";
 
 export const findModulesForCourse = async (courseId) => {
   const response = await axios.get(`${COURSES_URL}/${courseId}/modules`);

@@ -23,7 +23,8 @@ const CourseLayout: FC = () => {
   //console.log(location);
 
   // async find course by id:
-  const URL = "http://localhost:4000/api/courses";
+  const baseURL = import.meta.env.VITE_REACT_APP_API_BASE;
+  let URL = baseURL + "/courses";
   const [course, setCourse] = useState<ICourse | null>(null);
   const findCourseById = async (courseId) => {
     const response = await axios.get(`${URL}/${courseId}`);
