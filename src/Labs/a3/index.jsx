@@ -1,11 +1,11 @@
-import JavaScript from "./JavaScript";
-import PathParameters from "./PathParameters";
-import TodoItem from "./todos/TodoItem";
-import TodoList from "./todos/TodoList";
-import Classes from "./Classes";
-import Styles from "./Styles";
-import ConditionalOutput from "./ConditionalOutput";
-import Nav from "../../Nav";
+import JavaScript from "./JavaScript.jsx";
+import PathParameters from "./PathParameters.jsx";
+import TodoItem from "./todos/TodoItem.jsx";
+import TodoList from "./todos/TodoList.jsx";
+import Classes from "./Classes/index.jsx";
+import Styles from "./Styles/index.jsx";
+import ConditionalOutput from "./ConditionalOutput/index.jsx";
+import Nav from "../../Nav.jsx";
 function Assignment3() {
   return (
     <div>
