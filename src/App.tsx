@@ -19,7 +19,6 @@ import { Assignments, EditAssignment } from "./components/courses/Assignments";
 import { Grades } from "./components/courses/Grades";
 import { Modules } from "./components/courses/Modules";
 import { Typography, Box } from "@mui/material";
-import HelloWorld from "./labs/a3/HelloWorld";
 import Labs from "./labs";
 import Assignment4 from "./labs/a4";
 import Assignment5 from "./labs/a5";
@@ -36,7 +35,7 @@ function App() {
   const baseURL = import.meta.env.VITE_REACT_APP_API_BASE;
   console.log(baseURL);
   let url = `${baseURL}/courses`;
- // url = "https://kanbas-node-server-app-muhm.onrender.com/api/modules";
+  // url = "https://kanbas-node-server-app-muhm.onrender.com/api/modules";
   console.log(url);
   const [courses, setCourses] = useState([]);
 
