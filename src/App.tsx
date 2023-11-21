@@ -21,6 +21,7 @@ import { Modules } from "./components/courses/Modules";
 import { Typography, Box } from "@mui/material";
 import Assignment4 from "./labs/a4";
 import Assignment5 from "./labs/a5";
+import Labs from "./labs";
 
 import React, { FC, useEffect, useContext, useState } from "react";
 import db from "./Database";
