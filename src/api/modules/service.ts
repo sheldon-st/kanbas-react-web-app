@@ -1,5 +1,6 @@
 import axios from "axios";
-const MODULES_URL = 'https://kanbas-node-server-app-muhm.onrender.com/api/modules';
+const baseURL = process.env.REACT_APP_API_BASE;
+const MODULES_URL = baseURL + "/api/modules";
 export const deleteModule = async (moduleId) => {
   const response = await axios.delete(`${MODULES_URL}/${moduleId}`);
   return response.data;
