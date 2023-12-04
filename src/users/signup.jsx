@@ -24,12 +24,16 @@ function Signup() {
         value={credentials.username}
         onChange={(e) => setCredentials({
           ...credentials,
-          username: e.target.value })} />
+          username: e.target.value })} 
+          placeholder="Username"
+          />
       <input
         value={credentials.password}
         onChange={(e) => setCredentials({
           ...credentials,
-          password: e.target.value })} />
+          password: e.target.value })}
+          placeholder="Password"
+          />
       <button onClick={signup}>
         Signup
       </button>

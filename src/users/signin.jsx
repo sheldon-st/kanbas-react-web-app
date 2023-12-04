@@ -11,8 +11,8 @@ function Signin() {
   return (
     <div>
       <h1>Signin</h1>
-      <input value={credentials.username} onChange={(e) => setCredentials({...credentials, username: e.target.value})}/>
-      <input value={credentials.password} onChange={(e) => setCredentials({...credentials, password: e.target.value})}/>
+      <input value={credentials.username} onChange={(e) => setCredentials({...credentials, username: e.target.value})} placeholder="Username"/>
+      <input value={credentials.password} onChange={(e) => setCredentials({...credentials, password: e.target.value})} placeholder="Password"/>
       <button onClick={signin}> Signin </button>
     </div>
   );
