@@ -4,6 +4,8 @@ import {
   RedirectFunction,
   Route,
   Routes,
+  Link,
+  Outlet
 } from "react-router-dom";
 import RootLayout from "./components/RootLayout";
 import HomePage from "./pages/HomePage";
@@ -22,6 +24,8 @@ import { Typography, Box } from "@mui/material";
 import Assignment4 from "./Labs/a4";
 import Assignment5 from "./Labs/a5";
 import Labs from "./Labs";
+import Signin from "./users/signin";
+import Account from "./users/account";
 
 import React, { FC, useEffect, useContext, useState } from "react";
 import db from "./Database";
@@ -30,6 +34,8 @@ import { CourseList } from "./components/courses/Courses";
 import store from "./store";
 import { Provider } from "react-redux";
 import axios from "axios";
+import UserTable from "./users/table";
+import Signup from "./users/signup";
 
 function App() {
   const baseURL = import.meta.env.VITE_REACT_APP_API_BASE;
@@ -87,6 +93,26 @@ function App() {
       <BrowserRouter>
         <Provider store={store}>
           <Routes>
+            <Route path="/auth/" element={<div style={{display: "flex", flexDirection: "row"}}>
+              <div style={{display: "flex", flexDirection: "column"}}>
+              <Link to="signin">Signin</Link>
+              <Link to="signup">Signup</Link>
+              <Link to="account">Account</Link>
+              <Link to="admin/users">Users</Link>
+              </div>
+              <Outlet />
+              
+            </div>
+            } >
+              <Route path="signin" element={<Signin />} />
+              <Route path="signup" element={<Signup />} />
+            <Route path="account" element={<Account />} />
+            <Route path="admin/users" element={<UserTable />} />
+
+            </Route>
+
+            
+
             <Route path="/kanbas/" element={<RootLayout />}>
               {/* <Route path="/" element={<HomePage />} /> */}
               <Route path="account" element={<AccountLayout />}>
