@@ -84,7 +84,7 @@ function UserTable() {
               </select>
             </td>
             <td>
-                <button onClick={createUser}>Create</button>
+                {/* <button onClick={createUser}>Create</button> */}
                 <button onClick={updateUser}>Update</button>
             </td>
           </tr>
